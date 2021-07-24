@@ -1,12 +1,12 @@
 //Script decompiler: https://github.com/njames93/GTA-V-Script-Decompiler;
 //1.54 Scripts: https://github.com/Sainan/GTA-V-Decompiled-Scripts/tree/master/scripts;
-var fs = require('fs');
-var Lazy = require('lazy');
-const { exit } = require('process');
+var qrfJNdtvAUHkEGCXtzIOwEPUfgDfMjOYVX = require('fs');
+var wwjWXtFzaotZEunbsXloBzR = require('lazy');
+const { lnbWjroVyBPDrmWdvnXCWUmwzsqxZKmQKN } = require('process');
 
 /* Value to edit: */
-var source = __dirname + "/plz_zu_ort.csv";//Your .csv file
-var target = "SQLtable.sql";//Outputfile
+var source = __dirname + "/example/plz_zu_ort.csv";//Your .csv file
+var target = "./example/SQLtable.sql";//Outputfile
 var begin = 0;//Line to start search
 var end = 999999;//Line to end search
 var TableName = "city_data";
@@ -17,141 +17,141 @@ var TableData = [
     ["bundesland", "varchar(255) NOT NULL", "string"]
 ];
 
-var lineReader = require('readline').createInterface({
+var pNfapIpORPLsrfngoqyAogUJQwPdOLVLnPXhiBi = require('readline').createInterface({
     input: require('fs').createReadStream(source)//Program start reading 'source'
 });
 
-var linecounter = 0;//Lines searched between: 'begin'-'end'
-var foundids = 0;//Ammount of found RemoteID's
-var foundsearch = false;//Checks if there is even 1 RemoteID found
-var arraylist = [];//...
+var ydLKbmGoWyyjKamUPdjqixPOatOsSyEUiJCBMNF = 0;//Lines searched between: 'begin'-'end'
+var DbmSeJEKUiNnORJqSRxDqBjLNMW = 0;//Ammount of found RemoteID's
+var HjQPmdCboQgtmwOysNesaToOvhz = false;//Checks if there is even 1 RemoteID found
+var ShNbZubnGEFPVGeGNASKTabcJr = [];//...
 
-function isNumeric(str) {
+function piOdUIKvqhNgtJfhUsbTKeWkDmERpGfcBAjwkN(str) {
     if (typeof str != "string") return false // we only process strings!  
     return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
         !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
 }
 
-var isInit = false;
-Init = () => {
+var imfHiXZxDKUOTFeBKBzjkgiMuIriHb = false;
+wlxejAqEOXccGuvGlgNLXxWbNLDsj = () => {
     for (var x = 0; x < TableData.length; x++) {
-        arraylist.push([TableData[x][2]]);
+        ShNbZubnGEFPVGeGNASKTabcJr.push([TableData[x][2]]);
     }   
 
-    console.table(arraylist);
-    isInit = true;
+    console.table(ShNbZubnGEFPVGeGNASKTabcJr);
+    imfHiXZxDKUOTFeBKBzjkgiMuIriHb = true;
     return
 }
 
-lineReader.on('line', function (line) {
-    if (!isInit) {
-        Init();
+pNfapIpORPLsrfngoqyAogUJQwPdOLVLnPXhiBi.on('line', function (line) {
+    if (!imfHiXZxDKUOTFeBKBzjkgiMuIriHb) {
+        wlxejAqEOXccGuvGlgNLXxWbNLDsj();
     }
 
-    if (linecounter >= begin && linecounter <= end) {
+    if (ydLKbmGoWyyjKamUPdjqixPOatOsSyEUiJCBMNF >= begin && ydLKbmGoWyyjKamUPdjqixPOatOsSyEUiJCBMNF <= end) {
 
-        var LineArray = line.split(",");
-        if (linecounter == 0) {
-            console.log(LineArray[0], LineArray[1], LineArray[2], LineArray[3]);
-            if (TableData.length != LineArray.length) {
+        var amZxmcwqgijDKYhwQmklPNEeLSqdZYjAVFYMEaNH = line.split(",");
+        if (ydLKbmGoWyyjKamUPdjqixPOatOsSyEUiJCBMNF == 0) {
+            console.log(amZxmcwqgijDKYhwQmklPNEeLSqdZYjAVFYMEaNH[0], amZxmcwqgijDKYhwQmklPNEeLSqdZYjAVFYMEaNH[1], amZxmcwqgijDKYhwQmklPNEeLSqdZYjAVFYMEaNH[2], amZxmcwqgijDKYhwQmklPNEeLSqdZYjAVFYMEaNH[3]);
+            if (TableData.length != amZxmcwqgijDKYhwQmklPNEeLSqdZYjAVFYMEaNH.length) {
                 console.log("Error: TableData Array doesn't match .csv Array")
-                exit(0);
+                lnbWjroVyBPDrmWdvnXCWUmwzsqxZKmQKN(0);
             } else {
                 console.log("Passed");
             }
-            linecounter++;
+            ydLKbmGoWyyjKamUPdjqixPOatOsSyEUiJCBMNF++;
             return;//Jump the first line
         }
 
 
 
-        for (var x = 0; x < arraylist.length; x++) {
-            if (arraylist[x][0] == "string") {
-                arraylist[x].push("'" + LineArray[x] + "'");
-            } else if (arraylist[x][0] == "int") {
-                arraylist[x].push(LineArray[x]);
+        for (var x = 0; x < ShNbZubnGEFPVGeGNASKTabcJr.length; x++) {
+            if (ShNbZubnGEFPVGeGNASKTabcJr[x][0] == "string") {
+                ShNbZubnGEFPVGeGNASKTabcJr[x].push("'" + amZxmcwqgijDKYhwQmklPNEeLSqdZYjAVFYMEaNH[x] + "'");
+            } else if (ShNbZubnGEFPVGeGNASKTabcJr[x][0] == "int") {
+                ShNbZubnGEFPVGeGNASKTabcJr[x].push(amZxmcwqgijDKYhwQmklPNEeLSqdZYjAVFYMEaNH[x]);
             }
         }
 
-        foundids++;
-        if (!foundsearch) {
-            foundsearch = true;
+        DbmSeJEKUiNnORJqSRxDqBjLNMW++;
+        if (!HjQPmdCboQgtmwOysNesaToOvhz) {
+            HjQPmdCboQgtmwOysNesaToOvhz = true;
         }
     }
-    linecounter++;
+    ydLKbmGoWyyjKamUPdjqixPOatOsSyEUiJCBMNF++;
 });
 
 //Output a array to copy in C++->Bruteforce all possible RemoteID's via. trigger_script_event
-CreateTableOutput = () => {
-    var returnstring = "--\n-- Automatic Table generation...\n--\n\nCREATE TABLE `" + TableName + "` (\n";
+OQzHiUByezwArojNzWGPyCjYRyrAOmEVhWhg = () => {
+    var gYGbgHeGmydVtATdMggfPQdIZqguvBSLEfT = "--\n-- Automatic Table generation...\n--\n\nCREATE TABLE `" + TableName + "` (\n";
     for (var x = 0; x < TableData.length; x++) {
-        returnstring += "\t`" + TableData[x][0] + "` " + TableData[x][1];
+        gYGbgHeGmydVtATdMggfPQdIZqguvBSLEfT += "\t`" + TableData[x][0] + "` " + TableData[x][1];
         if (x != TableData.length - 1) {
-            returnstring += ",\n";
+            gYGbgHeGmydVtATdMggfPQdIZqguvBSLEfT += ",\n";
         } else {
-            returnstring += "\n";
+            gYGbgHeGmydVtATdMggfPQdIZqguvBSLEfT += "\n";
         }
     }
 
-    returnstring += ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
-    return returnstring;
+    gYGbgHeGmydVtATdMggfPQdIZqguvBSLEfT += ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+    return gYGbgHeGmydVtATdMggfPQdIZqguvBSLEfT;
 }
 
-InsertIntoString = () => {
-    var returnstring = "INSERT INTO `" + TableName + "` (";
+RmcMPjgMIMtSEJQZnSqjxPrwVmyTAjjbeblnTWOJC = () => {
+    var gYGbgHeGmydVtATdMggfPQdIZqguvBSLEfT = "INSERT INTO `" + TableName + "` (";
 
     for (var x = 0; x < TableData.length; x++) {
-        returnstring += "`" + TableData[x][0] + "`";
+        gYGbgHeGmydVtATdMggfPQdIZqguvBSLEfT += "`" + TableData[x][0] + "`";
         if (x != TableData.length - 1) {
-            returnstring += ",";
+            gYGbgHeGmydVtATdMggfPQdIZqguvBSLEfT += ",";
         }
     }
 
-    returnstring += ") VALUES\n";
+    gYGbgHeGmydVtATdMggfPQdIZqguvBSLEfT += ") VALUES\n";
 
 
-    for (var x = 1; x < foundids; x++) {
-        var currentString = "(";
-        for (var y = 0; y < arraylist.length; y++) {
-            currentString += arraylist[y][x]
-            if (y != arraylist.length - 1) {
-                currentString += ", "
+    for (var x = 1; x < DbmSeJEKUiNnORJqSRxDqBjLNMW; x++) {
+        var bVyEIJBDlLDiCYFKobZlKmQ = "(";
+        for (var y = 0; y < ShNbZubnGEFPVGeGNASKTabcJr.length; y++) {
+            bVyEIJBDlLDiCYFKobZlKmQ += ShNbZubnGEFPVGeGNASKTabcJr[y][x]
+            if (y != ShNbZubnGEFPVGeGNASKTabcJr.length - 1) {
+                bVyEIJBDlLDiCYFKobZlKmQ += ", "
             }
         }
-        if (x != foundids - 1) {
-            currentString += "),\n"
+        if (x != DbmSeJEKUiNnORJqSRxDqBjLNMW - 1) {
+            bVyEIJBDlLDiCYFKobZlKmQ += "),\n"
         } else {
-            currentString += ");"
+            bVyEIJBDlLDiCYFKobZlKmQ += ");"
         }
-        returnstring += currentString;
+        gYGbgHeGmydVtATdMggfPQdIZqguvBSLEfT += bVyEIJBDlLDiCYFKobZlKmQ;
     }
 
-    return returnstring;
+    return gYGbgHeGmydVtATdMggfPQdIZqguvBSLEfT;
 }
 
-forSQL = () => {
-    var BaseFile = '-- Table generated by WlanKabL\n\nSET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";\nSET time_zone = "+00:00";\n\n';
-    BaseFile += CreateTableOutput() + "\n\n--\n-- Data for the Table: " + TableName + "\n--\n\n";
-    var theoutput = BaseFile;
+uuDMgZjlOgmIvCWdKYxtDNkFEPFTCTFhJJTFXOYoLQQE = () => {
+    var uTVUUbbZXxrOGxcLIIaViyQl = '-- Table generated by WlanKabL\n\nSET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";\nSET time_zone = "+00:00";\n\n';
+    uTVUUbbZXxrOGxcLIIaViyQl += OQzHiUByezwArojNzWGPyCjYRyrAOmEVhWhg() + "\n\n--\n-- Data for the Table: " + TableName + "\n--\n\n";
+    var zVyAqbOVGSbbmasyJhuxyXmKop = uTVUUbbZXxrOGxcLIIaViyQl;
 
-    theoutput += InsertIntoString();
-    theoutput += "\n\n--\n-- Number of values in table:\n-- " + foundids + "\n--";
-    return theoutput;
+    zVyAqbOVGSbbmasyJhuxyXmKop += RmcMPjgMIMtSEJQZnSqjxPrwVmyTAjjbeblnTWOJC();
+    zVyAqbOVGSbbmasyJhuxyXmKop += "\n\n--\n-- Number of values in table:\n-- " + DbmSeJEKUiNnORJqSRxDqBjLNMW + "\n--";
+    return zVyAqbOVGSbbmasyJhuxyXmKop;
 }
 
 //End of Programm. All lines of 'source' got readed
-lineReader.on("close", function () {
+pNfapIpORPLsrfngoqyAogUJQwPdOLVLnPXhiBi.on("close", function () {
     console.log("File searched: " + source);
-    if (foundsearch) {
-        console.log("Searched Lines: " + linecounter);
+    if (HjQPmdCboQgtmwOysNesaToOvhz) {
+        console.log("Searched Lines: " + ydLKbmGoWyyjKamUPdjqixPOatOsSyEUiJCBMNF);
         console.log("Searched between: " + begin + " and " + end);
-        console.log("Found Values's for Table: " + foundids);
+        console.log("Found Values's for Table: " + DbmSeJEKUiNnORJqSRxDqBjLNMW);
     } else {
         console.log("ERROR: Searchrequest not found!");
-        exit(0);
+        lnbWjroVyBPDrmWdvnXCWUmwzsqxZKmQKN(0);
     }
 
-    fs.writeFile(target, forSQL(), function (err) {
+    qrfJNdtvAUHkEGCXtzIOwEPUfgDfMjOYVX.writeFile(target, uuDMgZjlOgmIvCWdKYxtDNkFEPFTCTFhJJTFXOYoLQQE(), function (err) {
         if (err) {
             return console.log(err);
         }
